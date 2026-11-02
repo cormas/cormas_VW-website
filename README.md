@@ -1,4 +1,4 @@
-This is a copy of the old Cormas website. 
+This is a copy of the Cormas-VW website (Cormas on VisualWorks). 
 
 It used to be on http://cormas.cirad.fr, but the Cirad servers have been changed.
 
