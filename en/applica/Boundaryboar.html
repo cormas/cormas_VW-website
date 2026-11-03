@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta content="Cormas, Cirad, gestion des ressources naturelles,
+      natural resource management, INRM, environnement, environment,
+      simulation, modelisation, modelling, SMA, MAS, multi-agent,
+      smalltalk, visualworks, logiciel, software" name="KeyWords">
+    <title>Boundaryboar</title>
+    <!--#include virtual="/include/script.inc" -->
+    <link --="" href="/css/cormas.css" rel="stylesheet">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            margin-left: 180px;
+            width: calc(100% - 180px);
+        }
+        .header-container {
+            height: 80px;
+            width: 100vw;
+            background-color: #FFA500;
+            position: relative;
+            margin-left: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            display: flex;
+            justify-content: center;
+        }
+        .header-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .header-image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 180px;
+            height: 100%;
+            background-color: #FFCC99;
+            padding: 20px;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+        #sidebar ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding: 0;
+        }
+        #sidebar ul li a {
+            display: block;
+            text-align: left;
+            color: #333;
+            background-color: #FFCC99;
+            padding: 10px 0;
+        }
+        #sidebar ul li a:hover {
+            background-color: #C86D12;
+        }
+        table {
+            width: 100%;
+            margin-left: 20px;
+        }
+        tbody td {
+            padding-left: 30px;
+        }
+        tbody td.content-cell {
+            padding-left: 80px;
+        }
+        </style>
+    <meta name="author" content="Cecile Fromont">
+  </head>
+  <body border="0"
+onload="MM_preloadImages(/images/fr/accueil_r.gif,/images/fr/demarche_r.gif,/images/fr/logiciel_r.gif,/images/fr/applications_r.gif,/images/fr/biblio_r.gif,/images/fr/formation_r.gif,/images/fr/reseaux_r.gif)"
+    topmargin="0" leftmargin="0" marginwidth="0" marginheight="0"
+    bgcolor="#FFFFFF">
+    <div class="header-container" style="width: 100vw; background-color:
+      #FFA500; position: relative; margin-left: 0; left: 0; right: 0;
+      z-index: 1001; height: 80px; display: flex; justify-content:
+      center;">
+      <div class="header-image-container" style="display: flex;
+        justify-content: center; align-items: center; height: 100%;"><img
+          alt="Description de l'image" src="../../images/bandeau.jpg"
+          style="max-width: 100%; max-height: 100%; object-fit:
+          contain;"></div>
+    </div>
+    <div class="container">
+      <!--#include virtual="haut.inc" -->
+      <!-- -- -- -- -- -- -- -- Corner -- -- -- -- -- -- -- -- -- -- -- -- --><img
+        src="../../images/coin_hg.gif" width="23" height="23">
+      <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tbody>
+          <tr>
+            <!--#include virtual="sommair.inc" -->
+            <td width="*" valign="baseline" bgcolor="#FFFFFF">
+              <p>&nbsp; </p>
+              <h1 align="right"><font color="#777777">Boundaryboar Model</font><br>
+              </h1>
+              <h1 align="right"><font color="#777777"></font><br>
+              </h1>
+              <h2>Wild boar population dynamics in an urban and suburban
+                area<br>
+              </h2>
+              <h4>Cécile Fromont, Christophe Le Page</h4>
+              <p> </p>
+              <h2 class="anchor anchorWithStickyNavbar_LWe7"
+                id="objectives" style="box-sizing: border-box; color:
+                rgb(28, 30, 33); font-family: system-ui, -apple-system,
+                &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell,
+                &quot;Noto Sans&quot;, sans-serif, BlinkMacSystemFont,
+                &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif,
+                &quot;Apple Color Emoji&quot;, &quot;Segoe UI
+                Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-weight:
+                var(--ifm-heading-font-weight); line-height:
+                var(--ifm-heading-line-height); margin-top:
+                calc(var(--ifm-h2-vertical-rhythm-top)*var(--ifm-leading));
+                margin-right: ; margin-bottom:
+                calc(var(--ifm-heading-vertical-rhythm-bottom)*var(--ifm-leading));
+                margin-left: ; font-size: var(--ifm-h2-font-size);
+                --ifm-h2-font-size: 2rem; scroll-margin-top:
+                calc(var(--ifm-navbar-height) + 0.5rem); caret-color:
+                rgb(28, 30, 33); font-style: normal; font-variant-caps:
+                normal; letter-spacing: normal; orphans: auto;
+                text-align: start; text-indent: 0px; text-transform:
+                none; white-space: normal; widows: auto; word-spacing:
+                0px; -webkit-text-stroke-width: 0px; text-decoration:
+                none;">Objectives</h2>
+              <p style="box-sizing: border-box; margin-top: ;
+                margin-right: ; margin-bottom: var(--ifm-leading);
+                margin-left: ; caret-color: rgb(28, 30, 33); color:
+                rgb(28, 30, 33); font-family: system-ui, -apple-system,
+                &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell,
+                &quot;Noto Sans&quot;, sans-serif, BlinkMacSystemFont,
+                &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif,
+                &quot;Apple Color Emoji&quot;, &quot;Segoe UI
+                Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size:
+                16px; font-style: normal; font-variant-caps: normal;
+                font-weight: 400; letter-spacing: normal; orphans: auto;
+                text-align: start; text-indent: 0px; text-transform:
+                none; white-space: normal; widows: auto; word-spacing:
+                0px; -webkit-text-stroke-width: 0px; text-decoration:
+                none;">This model represents wild boar population
+                dynamics in an urban/suburban area embedded within a
+                broader landscape, as well as the effects of local
+                stakeholders’ decisions on these dynamics. It was
+                developed as part of the ANR Boundaryboar project with
+                the following main objectives:</p>
+              <ul style="box-sizing: border-box; margin-top: ;
+                margin-right: ; margin-bottom: var(--ifm-leading);
+                margin-left: ; padding-left:
+                var(--ifm-list-left-padding); caret-color: rgb(28, 30,
+                33); color: rgb(28, 30, 33); font-family: system-ui,
+                -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu,
+                Cantarell, &quot;Noto Sans&quot;, sans-serif,
+                BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica,
+                Arial, sans-serif, &quot;Apple Color Emoji&quot;,
+                &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;;
+                font-size: 16px; font-style: normal; font-variant-caps:
+                normal; font-weight: 400; letter-spacing: normal;
+                orphans: auto; text-align: start; text-indent: 0px;
+                text-transform: none; white-space: normal; widows: auto;
+                word-spacing: 0px; -webkit-text-stroke-width: 0px;
+                text-decoration: none;">
+                <li style="box-sizing: border-box; overflow-wrap:
+                  break-word;">To foster dialogue and the sharing of
+                  knowledge and perspectives between researchers and
+                  non-academic stakeholders involved in wild boar
+                  management, with a focus on social learning</li>
+                <li style="box-sizing: border-box; overflow-wrap:
+                  break-word; margin-top: var(--ifm-list-item-margin);">To
+                  explore management scenarios by testing different
+                  intervention strategies and discussing their
+                  implications.</li>
+              </ul>
+              <p style="box-sizing: border-box; margin-top: ;
+                margin-right: ; margin-bottom: var(--ifm-leading);
+                margin-left: ; caret-color: rgb(28, 30, 33); color:
+                rgb(28, 30, 33); font-family: system-ui, -apple-system,
+                &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell,
+                &quot;Noto Sans&quot;, sans-serif, BlinkMacSystemFont,
+                &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif,
+                &quot;Apple Color Emoji&quot;, &quot;Segoe UI
+                Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size:
+                16px; font-style: normal; font-variant-caps: normal;
+                font-weight: 400; letter-spacing: normal; orphans: auto;
+                text-align: start; text-indent: 0px; text-transform:
+                none; white-space: normal; widows: auto; word-spacing:
+                0px; -webkit-text-stroke-width: 0px; text-decoration:
+                none;">This model was co-designed by the project
+                researchers and stakeholders in the Montpellier region,
+                including representatives of the hunting federation,
+                hunting officers, and animal welfare associations.</p>
+              <p style="box-sizing: border-box; margin-top: ;
+                margin-right: ; margin-bottom: var(--ifm-leading);
+                margin-left: ; caret-color: rgb(28, 30, 33); color:
+                rgb(28, 30, 33); font-family: system-ui, -apple-system,
+                &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell,
+                &quot;Noto Sans&quot;, sans-serif, BlinkMacSystemFont,
+                &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif,
+                &quot;Apple Color Emoji&quot;, &quot;Segoe UI
+                Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size:
+                16px; font-style: normal; font-variant-caps: normal;
+                font-weight: 400; letter-spacing: normal; orphans: auto;
+                text-align: start; text-indent: 0px; text-transform:
+                none; white-space: normal; widows: auto; word-spacing:
+                0px; -webkit-text-stroke-width: 0px; text-decoration:
+                none;">The model balances a representation of the
+                real-world territorial context with abstraction, using
+                simplified land-use data from the European Corine Land
+                Cover database. This makes it readily adaptable to other
+                urban areas.</p>
+              <meta charset="UTF-8">
+              <br>
+              <table width="100%" cellspacing="2" cellpadding="2"
+                border="0">
+                <tbody>
+                  <tr>
+                    <td valign="top"><img
+                        src="../../images/applica/wildBoarMontpellier-urban.png"
+                        alt="MPL" width="550" height="378"><br>
+                    </td>
+                    <td valign="top"><img
+                        src="../../images/applica/wildBoarNimes-urban.png"
+                        alt="Nimes" width="530" height="378"><br>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h2 class="anchor anchorWithStickyNavbar_LWe7"
+                id="description" style="box-sizing: border-box; color:
+                rgb(28, 30, 33); font-family: system-ui, -apple-system,
+                &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell,
+                &quot;Noto Sans&quot;, sans-serif, BlinkMacSystemFont,
+                &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif,
+                &quot;Apple Color Emoji&quot;, &quot;Segoe UI
+                Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-weight:
+                var(--ifm-heading-font-weight); line-height:
+                var(--ifm-heading-line-height); margin-top:
+                calc(var(--ifm-h2-vertical-rhythm-top)*var(--ifm-leading));
+                margin-right: ; margin-bottom:
+                calc(var(--ifm-heading-vertical-rhythm-bottom)*var(--ifm-leading));
+                margin-left: ; font-size: var(--ifm-h2-font-size);
+                --ifm-h2-font-size: 2rem; scroll-margin-top:
+                calc(var(--ifm-navbar-height) + 0.5rem); caret-color:
+                rgb(28, 30, 33); font-style: normal; font-variant-caps:
+                normal; letter-spacing: normal; orphans: auto;
+                text-align: start; text-indent: 0px; text-transform:
+                none; white-space: normal; widows: auto; word-spacing:
+                0px; -webkit-text-stroke-width: 0px; text-decoration:
+                none;">Description</h2>
+              <p style="box-sizing: border-box; margin-top: ;
+                margin-right: ; margin-bottom: var(--ifm-leading);
+                margin-left: ; caret-color: rgb(28, 30, 33); color:
+                rgb(28, 30, 33); font-family: system-ui, -apple-system,
+                &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell,
+                &quot;Noto Sans&quot;, sans-serif, BlinkMacSystemFont,
+                &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif,
+                &quot;Apple Color Emoji&quot;, &quot;Segoe UI
+                Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size:
+                16px; font-style: normal; font-variant-caps: normal;
+                font-weight: 400; letter-spacing: normal; orphans: auto;
+                text-align: start; text-indent: 0px; text-transform:
+                none; white-space: normal; widows: auto; word-spacing:
+                0px; -webkit-text-stroke-width: 0px; text-decoration:
+                none;">The model represents interactions between
+                territorial elements (<span style="box-sizing:
+                  border-box; color: green;">green</span>),
+                landscape-structuring elements (<span style="box-sizing:
+                  border-box; color: purple;">purple</span>), wild boar
+                populations (<span style="box-sizing: border-box; color:
+                  orange;">orange</span>), human actors (<span
+                  style="box-sizing: border-box; color: red;">red</span>),
+                and direct management actions (<span style="box-sizing:
+                  border-box; color: blue;">blue</span>).</p>
+              <br>
+              <img src="../../images/applica/wildBoarUML.png" alt="UML"
+                width="924" height="657"><br>
+              <p style="box-sizing: border-box; margin-top: ;
+                margin-right: ; margin-bottom: var(--ifm-leading);
+                margin-left: ; caret-color: rgb(28, 30, 33); color:
+                rgb(28, 30, 33); font-family: system-ui, -apple-system,
+                &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell,
+                &quot;Noto Sans&quot;, sans-serif, BlinkMacSystemFont,
+                &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif,
+                &quot;Apple Color Emoji&quot;, &quot;Segoe UI
+                Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size:
+                16px; font-style: normal; font-variant-caps: normal;
+                font-weight: 400; letter-spacing: normal; orphans: auto;
+                text-align: start; text-indent: 0px; text-transform:
+                none; white-space: normal; widows: auto; word-spacing:
+                0px; -webkit-text-stroke-width: 0px; text-decoration:
+                none;">In this model, we have incorporated a variety of
+                levers that influence population dynamics and can be
+                adjusted to explore management scenarios: hunting
+                strategies, access to anthropogenic food sources in
+                urban areas (trash and direct feeding of animals), scrub
+                encroachment, supplementary feeding practices, and
+                targeted interventions. We have also included the option
+                to consider the issue of agricultural damage and ways to
+                protect crops.<br>
+                <br>
+              </p>
+              <h2 class="anchor anchorWithStickyNavbar_LWe7" id="usage"
+                style="box-sizing: border-box; color: rgb(28, 30, 33);
+                font-family: system-ui, -apple-system, &quot;Segoe
+                UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto
+                Sans&quot;, sans-serif, BlinkMacSystemFont, &quot;Segoe
+                UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple
+                Color Emoji&quot;, &quot;Segoe UI Emoji&quot;,
+                &quot;Segoe UI Symbol&quot;; font-weight:
+                var(--ifm-heading-font-weight); line-height:
+                var(--ifm-heading-line-height); margin-top:
+                calc(var(--ifm-h2-vertical-rhythm-top)*var(--ifm-leading));
+                margin-right: ; margin-bottom:
+                calc(var(--ifm-heading-vertical-rhythm-bottom)*var(--ifm-leading));
+                margin-left: ; font-size: var(--ifm-h2-font-size);
+                --ifm-h2-font-size: 2rem; scroll-margin-top:
+                calc(var(--ifm-navbar-height) + 0.5rem); caret-color:
+                rgb(28, 30, 33); font-style: normal; font-variant-caps:
+                normal; letter-spacing: normal; orphans: auto;
+                text-align: start; text-indent: 0px; text-transform:
+                none; white-space: normal; widows: auto; word-spacing:
+                0px; -webkit-text-stroke-width: 0px; text-decoration:
+                none;">Usage</h2>
+              <p style="box-sizing: border-box; margin-top: ;
+                margin-right: ; margin-bottom: var(--ifm-leading);
+                margin-left: ; caret-color: rgb(28, 30, 33); color:
+                rgb(28, 30, 33); font-family: system-ui, -apple-system,
+                &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell,
+                &quot;Noto Sans&quot;, sans-serif, BlinkMacSystemFont,
+                &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif,
+                &quot;Apple Color Emoji&quot;, &quot;Segoe UI
+                Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size:
+                16px; font-style: normal; font-variant-caps: normal;
+                font-weight: 400; letter-spacing: normal; orphans: auto;
+                text-align: start; text-indent: 0px; text-transform:
+                none; white-space: normal; widows: auto; word-spacing:
+                0px; -webkit-text-stroke-width: 0px; text-decoration:
+                none;">Up to time step t = 28, the simulator operates
+                retrospectively to reconstruct the current situation
+                from historical dynamics. This corresponds to the period
+                from 1990 to 2018. During this parameter calibration
+                phase, the simulator serves as a tool for reflection and
+                discussion among stakeholders to reconstruct a recent
+                situation consistent with their on-the-ground knowledge.</p>
+              <p style="box-sizing: border-box; margin-top: ;
+                margin-right: ; margin-bottom: 0px !important;
+                margin-left: ; caret-color: rgb(28, 30, 33); color:
+                rgb(28, 30, 33); font-family: system-ui, -apple-system,
+                &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell,
+                &quot;Noto Sans&quot;, sans-serif, BlinkMacSystemFont,
+                &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif,
+                &quot;Apple Color Emoji&quot;, &quot;Segoe UI
+                Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size:
+                16px; font-style: normal; font-variant-caps: normal;
+                font-weight: 400; letter-spacing: normal; orphans: auto;
+                text-align: start; text-indent: 0px; text-transform:
+                none; white-space: normal; widows: auto; word-spacing:
+                0px; -webkit-text-stroke-width: 0px; text-decoration:
+                none;">After t=28, the simulator can be used in several
+                ways: as a tool for reflecting on various possible
+                management measures, as a tool for role-playing, and to
+                explore different governance scenarios.</p>
+              <br>
+              <ul>
+                <li>For more information, contact the <a
+                    href="mailto:bommel@cirad.fr">author</a>.</li>
+              </ul>
+              <h3>&nbsp;</h3>
+              <p>&nbsp;</p>
+              <!--#include virtual="/include/copyright_fr.inc" --> </td>
+            <td width="15" valign="top" bgcolor="#FFFFFF"> <br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="sidebar" style="background-color: #FFCC99; position: fixed;
+      top: 0; left: 0; width: 180px; height: 100%; padding: 20px;
+      z-index: 1000; box-sizing: border-box;"><br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <ul>
+        <li><a href="../../indexeng.htm">Home</a></li>
+        <li><a href="../demarch/demarch.htm">Approach</a></li>
+        <li><a href="../outil/outil.htm">Cormas software</a></li>
+        <li><a href="../applica/applica.htm">Models</a></li>
+        <li><a href="../bibliog/article.htm">Publications</a></li>
+        <li><a href="../formati/formati.htm">Trainings</a></li>
+        <li><a href="../reseaux/reseaux.htm">Networks</a></li>
+      </ul>
+    </div>
+  </body>
+</html>
